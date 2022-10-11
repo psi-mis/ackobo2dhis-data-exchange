@@ -1,0 +1,22 @@
+default:
+  source_url: "https://kf.kobotoolbox.org/"
+  source_user: !expr keyringr::get_kc_account("kf.kobotoolbox.org", type = "internet")
+  source_pass: !expr keyringr::decrypt_kc_pw("kf.kobotoolbox.org", type = "internet")
+  
+  dest_url: "https://clone.psi-mis.org/"
+  dest_user: !expr keyringr::get_kc_account("clone.psi-mis.org", type = "internet")
+  dest_pass: !expr keyringr::decrypt_kc_pw("clone.psi-mis.org", type = "internet") 
+  
+  mapping_file: "20220824 - Mapped  facilities.xlsx"
+  des_mapping_file: "Uganda_HMIS_105_-_self-injection_supplement.xlsx" 
+  dhis2_data_set: "aP3zev4cP4O.json" # DHIS2 uid of Access Collaborative data set
+  
+  assets: "ah7nDDiZYJBReP3ZXNUj5p" # Asset ID of the Access Collaborative
+  api_version: "v2" # API version of Kobo
+  data_pull: "all_months" # last_month
+  
+  timeout: 600
+
+production:
+  dest_url: "https://clone.psi-mis.org/"
+  
